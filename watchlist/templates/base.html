@@ -10,10 +10,24 @@
     {% endblock %}
 </head>
 <body>
-    <!-- 插入到页面标题上方
+    <!-- 插入到页面标题上方 -->
     {% for message in get_flashed_messages() %}
     <div class="alert">{{ message }}</div>
-    {% endfor %} -->
+    {% endfor %}
+
+    <script>
+    // 一秒后隐藏消息
+    setTimeout(function() {
+        var alerts = document.querySelectorAll('.alert');
+        alerts.forEach(function(alert) {
+            alert.style.opacity = 0;
+            setTimeout(function() {
+                alert.style.display = 'none';
+            }, 1000); // 渐变效果持续时间
+        });
+    }, 2000); // 延迟时间
+    </script>
+
     <h2>
         <img alt="Avatar" class="avatar" src="{{ url_for('static', filename='images/avatar.png') }}">
         {{ user.name }}'s Watchlist

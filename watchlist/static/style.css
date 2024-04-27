@@ -126,4 +126,5 @@ input[name=year] {
     background-color: #cce5ff;
     border-color: #b8daff;
     border-radius: 5px;
+    transition: opacity 1s ease; /* 添加渐变效果 */
 }
